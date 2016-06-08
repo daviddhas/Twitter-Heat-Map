@@ -49,7 +49,7 @@ io.on('connection', function (socket) {
   console.log (key);
 
   var findKeywords = function(db, callback) {
-  //This functions like a 'LIKE= %keyword%' operation 
+  //This functions like a 'LIKE= %keyword%' operation
    var cursor =db.collection('twit_col').find({tweet:key}); //change here for proper query with keyword
    cursor.each(function(err, doc) {
       assert.equal(err, null);
@@ -76,8 +76,8 @@ io.on('connection', function (socket) {
 //Call varKewords function
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
-  findKeywords(db, function(data) { 
-    
+  findKeywords(db, function(data) {
+
     db.close();
   });
 });
@@ -89,7 +89,7 @@ MongoClient.connect(url, function(err, db) {
 //Setup rotuing for app
 app.use(express.static(__dirname + '/public'));
 
-var PORT = 5000;
+var PORT = 8080;
 http.listen(PORT, function() {
     console.log("listening on " + PORT);
 });
